@@ -1,4 +1,4 @@
-function Nome({nome, idade}) {
+function Nome({ nome, idade }) {
     return (
         <span>
             Aqui é seu ambiente react: {nome} - Idade: {idade} anos
