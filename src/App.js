@@ -1,48 +1,32 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import "./style.css";
 
 function App() {
-  const [input, setInput] = useState('');
-  const [tarefas, setTarefas] = useState([
-    'Limpar a casa',
-    'Estudar react',
-    'Lavar a louça'
-  ]);
-
-  useEffect(()=> {
-    const tarefasStorage = localStorage.getItem('@tarefa');
-
-    if (tarefasStorage) {
-      setTarefas(JSON.parse(tarefasStorage))
-    }
-    
-  }, []);
+  const [nutri, setNutri] = useState([]);
 
   useEffect(() => {
-    localStorage.setItem('@tarefa', JSON.stringify(tarefas))
-  }, [tarefas]);
 
-  function handleRegister(e) {
-    e.preventDefault();
+    function loadApi() {
+      let url = 'https://sujeitoprogramador.com/rn-api/?api=posts';
 
-    setTarefas([...tarefas, input]);
-    setInput('');
-  }
+      fetch(url)
+        .then((r) => r.json())
+        .then((json) => {
+          console.log(json);
+          setNutri(json);
+        })
+    }
+
+    loadApi();
+  }, []);
 
   return (
-    <div>
-      <h1>Cadastrando usuário</h1>
-
-      <form onSubmit={handleRegister}>
-        <label>Nome da tarefa: </label><br />
-        <input placeholder='Digite uma tarefa' value={input} onChange={(e) => setInput(e.target.value)} />
-        <br /><br />
-        <button type="submit"> Registrar </button>
-      </form>
-      <ul>
-        {tarefas.map(tarefa => (
-          <li key={tarefa}>{tarefa}</li>
-        ))}
-      </ul>
+    <div className="container">
+      <header>
+        <h1>
+          Teste
+        </h1>
+      </header>
     </div>
   );
 }
