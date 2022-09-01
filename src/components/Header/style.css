@@ -1,0 +1,20 @@
+header {
+    width: 97.5%;
+    height: 97px;
+    background-color: #121212;
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+
+header a {
+    color: #fff;
+    font-size: 20;
+}
+
+header a+a {
+    margin-left: 10px;
+}
