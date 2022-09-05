@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Sobre from './pages/Sobre';
 import Contato from './pages/Contato';
+import Produto from './pages/Produto';
 import Error from './pages/Error';
 
 function RoutesApp() {
@@ -13,7 +14,8 @@ function RoutesApp() {
                 <Route path="/" element={<Home />} />
                 <Route path="/sobre" element={<Sobre />} />
                 <Route path="/contato" element={<Contato />} />
-                
+                <Route path="/produto/:id" element={<Produto />} />
+
                 <Route path="*" element={<Error />} />
             </Routes>
         </BrowserRouter>
